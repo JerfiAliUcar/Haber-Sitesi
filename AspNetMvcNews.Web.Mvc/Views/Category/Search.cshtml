@@ -1,0 +1,71 @@
+﻿<!-- Breadcumb Area Start -->
+@model List<News>
+<!-- Breadcumb Area End -->
+<section class="catagory-welcome-post-area section_padding_100">
+    <div class="container">
+        <h3>Search Query: @ViewBag.QueryText</h3>
+
+        <div class="row">
+
+            @if (Model.Count == 0)
+            {
+                <div class="col-12 col-md-4">
+                    Kayıt bulunamadı
+                </div>
+            }
+
+            @foreach (News news in Model)
+            {
+                <div class="col-12 col-md-4">
+                    <div class="gazette-welcome-post">
+
+                        <div class="gazette-post-tag">
+
+                            @foreach (var item in news.Categories)
+                            {
+
+                                <a href="#">@item.Name</a>
+                            }
+                        </div>
+                        <h2 class="font-pt">@news.Title</h2>
+                        <p class="gazette-post-date">@news.CreatedAt</p>
+                        <!-- Post Thumbnail -->
+                        @if (news.NewsImages.Any())
+                        {
+                            <div class="blog-post-thumbnail my-5">
+                                <img src="@news.NewsImages[0].ImagePath" alt="post-thumb">
+                            </div>
+                        }
+                        <p>@news.Content</p>
+                        <div class="post-continue-reading-share mt-30">
+                            <div class="post-continue-btn">
+                                <a asp-controller="News" asp-action="Detail" asp-route-cid="@news.Id" class="font-pt">Continue Reading <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        @if (Model.Any())
+        {
+            <div class="row">
+                <div class="col-12">
+                    <div class="gazette-pagination-area">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

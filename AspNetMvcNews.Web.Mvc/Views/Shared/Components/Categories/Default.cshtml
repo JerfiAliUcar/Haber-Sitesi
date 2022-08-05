@@ -1,0 +1,7 @@
+﻿
+@foreach (Category category in ViewBag.Categories)
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Category" asp-action="index" asp-route-cid="@category.Id" >@category.Name</a>
+    </li>
+}

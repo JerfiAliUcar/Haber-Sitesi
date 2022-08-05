@@ -1,0 +1,57 @@
+﻿<!-- Bottom Header Area -->
+<header>
+    <div class="bottom-header">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="main-menu">
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#gazetteMenu" aria-controls="gazetteMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i> Menu</button>
+                            <div class="collapse navbar-collapse" id="gazetteMenu">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Today <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    @await Component.InvokeAsync("Categories")
+
+                                </ul>
+                                <div class="header-search-form mr-auto">
+                                    <form asp-controller="Category" asp-action="Search">
+                                        <input type="search" placeholder="Input your keyword then press enter..." id="search" name="q">
+                                        <input class="d-none" type="submit" value="submit">
+                                    </form>
+                                </div>
+                                <div id="searchbtn">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                                
+                                <ul class="navbar-nav">
+                                    @*Giriş Yapıldıysa*@
+                                    @if (Context.User.Identity.IsAuthenticated)
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" href="#">@Context.User.Identity.Name</a> @*örn:jerfiali*@
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-controller="Auth" asp-action="Logout">Logout</a>
+                                        </li>
+                                    }
+                                    @*Giriş Yapılmadıysa*@
+                                    else
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Auth" asp-action="Login">Login</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-controller="Auth" asp-action="Register">Register</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

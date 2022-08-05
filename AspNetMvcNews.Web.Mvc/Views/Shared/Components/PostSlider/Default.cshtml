@@ -1,0 +1,39 @@
+﻿@model List<News>
+<section class="gazatte-editorial-area section_padding_80 bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="editorial-post-slides owl-carousel">
+                    @foreach (News news in Model)
+                    {
+                        <div class="editorial-post-single-slide">
+                            <div class="row">
+                                <div class="col-12 col-md-5">
+                                    @if (news.NewsImages.Any())
+                                    {
+                                        <div class="editorial-post-thumb">
+                                            <img src="@news.NewsImages[0].ImagePath" alt="">
+                                        </div>
+                                    }
+                                </div>
+                                <div class="col-12 col-md-7">
+                                    <div class="editorial-post-content">
+                                        <div class="gazette-post-tag">
+                                            @foreach (var item in news.Categories)
+                                            {
+                                                <a href="#">@item.Name</a>
+                                            }
+                                        </div>
+                                        <h2><a asp-controller="News" asp-action="Detail" asp-route-cid=@news.Id class="font-pt mb-15">@news.Title </a></h2>
+                                        <p class="editorial-post-date mb-15">@news.CreatedAt</p>
+                                        <p>@news.Content</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

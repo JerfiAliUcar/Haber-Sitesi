@@ -1,0 +1,54 @@
+﻿
+<!-- Footer Area Start -->
+<footer class="footer-area bg-img background-overlay" style="background-image: url(/img/bg-img/4.jpg);">
+    <!-- Top Footer Area -->
+    <div class="top-footer-area section_padding_100_70">
+        <div class="container">
+            <div class="row">
+     
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                    <div class="single-footer-widget">
+                        <div class="footer-widget-title">
+                            <h4 class="font-pt">Catogories</h4>
+                        </div>
+                        @foreach (Category category in ViewBag.Categories)
+                        {
+                            <ul class="footer-widget-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Category" asp-action="index" asp-route-cid="@category.Id">@category.Name</a>
+                                </li>
+
+                            </ul>
+                        }
+                    </div>
+                </div>          
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                    <div class="single-footer-widget">
+                        <div class="footer-widget-title">
+                            <h4 class="font-pt">Page</h4>
+                        </div>
+                        <ul class="footer-widget-menu">
+                            <li><a  asp-controller="Home" asp-action="index">Home</a></li>
+                            <li><a  asp-controller="Home" asp-action="AboutUs">About Us</a></li>
+                            <li><a   asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+    <div class="bottom-footer-area">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12">
+                    <div class="copywrite-text">
+                        <p>                           
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>                       
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

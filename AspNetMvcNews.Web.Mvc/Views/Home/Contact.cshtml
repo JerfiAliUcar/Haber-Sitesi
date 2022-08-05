@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title  -->
+    <title>TheGazette - News Magazine HTML5 Template | About Us</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="~/img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="~/css/core-style.css">
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <!-- Responsive CSS -->
+    <link href="~/css/responsive.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    @await Component.InvokeAsync("TopHeader")
+
+    <partial name="_MiddleHeader" />
+    <partial name="_BottomHeader" />
+
+    <!-- Breadcumb Area Start -->
+    <div class="breadcumb-area section_padding_50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breacumb-content d-flex align-items-center justify-content-between">
+                        <h3 class="font-pt mb-0">Contact</h3>
+                        <p class="editorial-post-date text-dark mb-0">28 November 2017</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcumb Area End -->
+
+    <section class="gazette-contact-area section_padding_100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <div class="gazette-heading">
+                        <h4 class="font-bold">address</h4>
+                    </div>
+                    <!-- Contact Form -->
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="contact-name" placeholder="Enter Your Full Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="contact-email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn contact-btn">SUBMIT <i class="fa fa-angle-right ml-2"></i></button>
+                    </form>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="gazette-heading">
+                        <h4 class="font-bold">address</h4>
+                    </div>
+                    <div class="contact-address-info mb-50">
+                        <p>Address: 1635 Franklin Street <br> City / State: Montgomery, AL 36104 <br> Phone: 126-632-2345</p>
+                    </div>
+                    <div class="gazette-heading">
+                        <h4 class="font-bold">Phone</h4>
+                    </div>
+                    <div class="contact-address-info">
+                        <p>Phone #1: 126-632-2345 <br>Phone #2: 126-632-2345 <br>Phone #3: 126-632-2345 <br>Phone #4: 126-632-2345</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="googleMap"></div>
+
+    @await Component.InvokeAsync("Footer")
+
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="~/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="~/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/js/active.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk"></script>
+    <script src="~/js/map-active.js"></script>
+
+</body>
+
+</html>
