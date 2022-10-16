@@ -29,7 +29,7 @@ namespace aspnet_mvc_news.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(RegisterViewModel model)
+        public IActionResult Register(RegisterViewModel model, string? returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -37,7 +37,7 @@ namespace aspnet_mvc_news.Controllers
 
                 foreach (var item in users)
                 {
-                    if ((item.Email != model.EmailAdress || item.Name != model.Username) && model.Password == model.Password2)
+                    if ((item.Email != model.EmailAdress && item.Name != model.Username) && model.Password == model.Password2)
                     {
                         var newUser = new User
                         {
@@ -47,11 +47,13 @@ namespace aspnet_mvc_news.Controllers
                         };
                         Db.Users.Add(newUser);
                         Db.SaveChanges();
+
+                        return Redirect(returnUrl == null ? "/" : returnUrl);
                     }
 
                     else
                     {
-                        
+                        ModelState.AddModelError(string.Empty, "Email kullanıcı adı veya şifreniz uygun değil");
                         return View();
                     }
                 }
